@@ -35,8 +35,8 @@ public class KlaviyoSDKCapacitorPlugin: CAPPlugin, UNUserNotificationCenterDeleg
   }
   
   @objc func setPushToken(_ call: CAPPluginCall) {
-    // let token = call.getString("token") ?? ""
-    // KlaviyoSDK().set(pushToken: token)
+    let token = call.getString("token") ?? ""
+    KlaviyoSDK().set(pushToken: token)
     call.resolve([
       "result": true
     ])

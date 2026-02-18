@@ -1,5 +1,7 @@
 package com.capacitor.klaviyosdk.plugin;
 
+import android.util.Log;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -64,10 +66,12 @@ public class KlaviyoSDKCapacitorPlugin extends Plugin {
         try {
             Klaviyo.INSTANCE.resetProfile();
             JSObject ret = new JSObject();
+            Log.d("KlaviyoReset", "reset success");
             ret.put("result", true);
             call.resolve(ret);
         } catch (Error e) {
             JSObject ret = new JSObject();
+            Log.d("KlaviyoReset", "reset failed");
             ret.put("result", false);
             call.resolve(ret);
         }
